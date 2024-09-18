@@ -1,0 +1,23 @@
+/* pela tag do elemento */
+h1 {
+    color: red;
+}
+
+/* pelo id */
+#titulo1 {
+    color: blue;
+    text-transform: uppercase;
+}
+
+#titulo2 {
+    color: blueviolet;
+}
+
+#titulo3 {
+    color: violet;
+}
+
+/* pela class */
+.amarelo {
+    background-color: yellow;
+}

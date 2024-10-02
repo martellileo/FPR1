@@ -1,10 +1,20 @@
 package br.edu.ifsp.pep.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 
+@Entity
+@Table(name="pessoa")
 public class Pessoa implements Serializable {
+    
+    @Id
+    @Column(name = "codigo")
     private Integer codigo;
     
+    @Column(name = "nome")
     private String nome; 
 
     public Integer getCodigo() {

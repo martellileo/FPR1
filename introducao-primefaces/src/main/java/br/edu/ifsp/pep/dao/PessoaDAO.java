@@ -8,7 +8,7 @@ import jakarta.persistence.PersistenceContext;
 @Stateless
 public class PessoaDAO {
     
-    @PersistenceContext(unitName = "conexaPU")
+    @PersistenceContext(unitName = "conexaoPU")
     private EntityManager em;
     
     public void inserir(Pessoa p){

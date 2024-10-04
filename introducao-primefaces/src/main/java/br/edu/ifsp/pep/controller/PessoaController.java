@@ -2,6 +2,7 @@ package br.edu.ifsp.pep.controller;
 
 import br.edu.ifsp.pep.dao.PessoaDAO;
 import br.edu.ifsp.pep.entity.Pessoa;
+import br.edu.ifsp.pep.util.Mensagem;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
@@ -53,6 +54,8 @@ public class PessoaController implements Serializable {
 
         //Criar nova pessoa
         this.pessoa = new Pessoa();
+        
+        Mensagem.sucesso("Pessoa Cadastrada", "Sucesso");
     }
 
     public Pessoa getPessoa() {

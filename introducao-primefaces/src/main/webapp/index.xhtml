@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>JSF / Primefaces</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <h:outputStylesheet library="css" name="estilo.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <span class="ui-float-label">
+                <p:inputText id="float-input-codigo" value="#{pessoaController.pessoa.codigo}" />
+                <p:outputLabel for="@previous" value="Código"/>
+            </span>
+            <br/>
+            <span class="ui-float-label">
+                <p:inputText id="float-input" value="#{pessoaController.pessoa.nome}" />
+                <p:outputLabel for="@previous" value="Nome"/>
+            </span>
+
+            <!-- Expression Language - EL # {} -->
+            <p:commandButton value="Adicionar" update="tabela" action="#{pessoaController.adicionar()}" />
+            <p:commandButton value="Exibir" action="#{pessoaController.exibir()}" />
+            
+            
+            <p:dataTable id="tabela" value="#{pessoaController.pessoas}" var="item">
+                <p:column headerText="Nome">
+                    <h:outputText value="#{item.nome}" />
+                </p:column>
+            </p:dataTable>            
+            
+        </h:form>
+
+    </h:body>
+</html>

@@ -9,38 +9,34 @@
         <h:outputStylesheet library="css" name="estilo.css"/>
     </h:head>
     <h:body>
+        <p:growl id="growl" showSummary="false" showDetail="true"/>
         <h:form>
-            <p:growl id="growl" showSummary="false" showDetail="true"/>
-            
-<!--            <span class="ui-float-label">
-                <p:inputText id="float-input-codigo" value="#{pessoaController.pessoa.codigo}" />
-                <p:outputLabel for="@previous" value="Código"/>
-            </span>
-            <br/>-->
             <span class="ui-float-label">
                 <p:inputText id="float-input" value="#{pessoaController.pessoa.nome}" />
-                <p:outputLabel for="@previous" value="Nome"/>
+                <p:outputLabel for="float-input" value="Nome"/>
             </span>
 
-            <!-- Expression Language - EL # {} -->
             <p:commandButton value="Adicionar" update="tabela" action="#{pessoaController.adicionar()}" />
             <p:commandButton value="Exibir" action="#{pessoaController.exibir()}" />
-            
+
             <p:dataTable id="tabela" value="#{pessoaController.pessoas}" 
                          var="item" selectionMode="single"
                          selection="#{pessoaController.pessoaSelecionada}"
                          rowKey="#{item.codigo}"
-                         p:dataTable var="customer" value="#{dtPaginatorView.customers}" rows="10"
-                        paginator="true" paginatorPosition="both"
-                        paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                        currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
-                        rowsPerPageTemplate="5,10,{ShowAll|'All'}">
+                         paginator="true" paginatorPosition="both"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                         rowsPerPageTemplate="5,10,{ShowAll|'All'}">
                 <p:column headerText="Nome">
                     <h:outputText value="#{item.nome}" />
                 </p:column>
-            </p:dataTable>            
-            
-        </h:form>
 
+                <f:facet name="footer">
+                    <p:commandButton value="Remover"
+                                     update="tabela growl"
+                                     action="#{pessoaController.remover}"/>
+                </f:facet>
+            </p:dataTable>            
+        </h:form>
     </h:body>
 </html>

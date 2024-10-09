@@ -34,7 +34,6 @@ public class PessoaController implements Serializable {
         System.out.println("Método exibir");
         // if(pessoaSelecionada != null)
         System.out.println(getPessoaSelecionada().getNome());
-
     }
 
     public Pessoa getPessoaSelecionada() {
@@ -54,7 +53,7 @@ public class PessoaController implements Serializable {
 
         //Criar nova pessoa
         this.pessoa = new Pessoa();
-        
+
         Mensagem.sucesso("Pessoa Cadastrada", "Sucesso");
     }
 
@@ -70,9 +69,13 @@ public class PessoaController implements Serializable {
         return pessoas;
     }
 
-    public void deletar() {
+    public void remover() {
         System.out.println(pessoaSelecionada.getNome());
-        pessoaDAO.excluir(pessoaSelecionada);
+        pessoaDAO.remover(pessoaSelecionada, Pessoa.class);
+
+        pessoas = null;
+
+        Mensagem.sucesso("Pessoa excluida", "Sucesso");
     }
 
 }

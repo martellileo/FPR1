@@ -5,7 +5,9 @@
 package br.edu.ifsp.pep.dao;
 
 import br.edu.ifsp.pep.entity.Veiculo;
+import jakarta.ejb.Stateless;
 
+@Stateless
 public class VeiculoDAO extends AbstractDAO<Veiculo>{
     
 }

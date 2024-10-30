@@ -12,8 +12,8 @@ import java.util.List;
 
 @Named //ManageBean
 //@RequestScoped //Escopo do tipo Request
-//@ViewScoped //Escopo do tipo View
-@SessionScoped //Escopo do tipo session (para cada cliente)
+@ViewScoped //Escopo do tipo View
+//@SessionScoped //Escopo do tipo session (para cada cliente)
 //@ApplicationScoped //Escopo único para a aplicação
 public class PessoaController implements Serializable {
 

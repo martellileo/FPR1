@@ -10,16 +10,24 @@ import java.io.Serializable;
 @Named
 @SessionScoped
 public class LoginController implements Serializable {
-    
+
     @Inject
     private PessoaDAO pessoaDAO;
-    
+
     private Pessoa pessoa = new Pessoa();
     
     private Pessoa pessoaAutenticada;
-    
-    public void autenticar (){
+
+    public void autenticar() {
         this.pessoaAutenticada = pessoaDAO.autenticar(pessoa.getLogin(), pessoa.getSenha());
+    }
+
+    public void logout() {
+        this.pessoaAutenticada = null;
+    }
+
+    public boolean usuarioLogado() {
+        return pessoaAutenticada != null;
     }
 
     public PessoaDAO getPessoaDAO() {
@@ -44,5 +52,5 @@ public class LoginController implements Serializable {
 
     public void setPessoaAutenticada(Pessoa pessoaAutenticada) {
         this.pessoaAutenticada = pessoaAutenticada;
-    }   
+    }
 }

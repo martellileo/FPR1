@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Named //ManageBean
-@SessionScoped //Escopo do tipo session
+@ViewScoped //Escopo do tipo session
 public class VeiculoController implements Serializable {
 
     @Inject

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
@@ -14,19 +14,34 @@
 
             <ui:define name="content">
                 <h:form>
-                    <div class="field">
-                        <span class="ui-float-label">
-                            <p:inputText id="login" value="#{loginController.pessoa.login}" />
-                            <p:outputLabel for="@previous" value="Login" />
-                        </span>
-                    </div>
-                    <div class="field">
-                        <span class="ui-float-label">
-                            <p:inputText id="senha" value="#{loginController.pessoa.senha}" />
-                            <p:outputLabel for="@previous" value="Senha" />
-                        </span>
-                        <p:commandButton value="Acessar" update="tabela growl" action="#{loginController.autenticar()}" />
-                    </div>           
+                    <h:panelGroup rendered="#{not loginController.usuarioLogado()}">
+                        <div class="field">
+                            <span class="ui-float-label">
+                                <p:inputText id="login" 
+                                             value="#{loginController.pessoa.login}" />
+                                <p:outputLabel for="@previous" value="Login" />
+                            </span>
+                        </div>
+                        <div class="field">
+                            <span class="ui-float-label">
+                                <p:inputText id="senha" 
+                                             value="#{loginController.pessoa.senha}" 
+                                             type="password" />
+                                <p:outputLabel for="@previous" value="Senha" />
+                            </span>
+                            <p:commandButton value="Acessar" 
+                                             update="@form" 
+                                             action="#{loginController.autenticar()}" />
+                        </div>
+                    </h:panelGroup>
+
+                    <h:panelGroup rendered="#{loginController.usuarioLogado()}">
+                        <h:outputText value="Bem-vindo!" />
+                        <br />
+                        <p:commandButton value="Sair" 
+                                         action="#{loginController.logout()}" 
+                                         update="@form" /> 
+                    </h:panelGroup>
                 </h:form>
                 
             </ui:define>

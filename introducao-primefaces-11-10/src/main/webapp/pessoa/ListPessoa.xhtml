@@ -30,6 +30,11 @@
                 <p:inputText id="senha" value="#{pessoaController.pessoa.senha}" />
                 <p:outputLabel for="@previous" value="Senha"/>
             </span>
+            <br />
+            <span class="ui-float-label">
+                <p:inputText id="nivel" value="#{pessoaController.pessoa.nivelAcesso}" />
+                <p:outputLabel for="@previous" value="Nivel Acesso"/>
+            </span>
 
             <!-- Expression Language - EL # {} -->
             <p:commandButton value="Veículo" action="/veiculo/ListVeiculo" />

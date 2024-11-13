@@ -3,3 +3,8 @@
 /sistema-banco/build/
 /introducao-primefaces-cesar/target/
 /introducao-primefaces-11-10/target/
+/fp1-avaliacao2-2024/nbproject/private/
+/fp1-avaliacao2-2024/build/
+/fp1-avaliacao2-2024/dist/
+
+*.zip

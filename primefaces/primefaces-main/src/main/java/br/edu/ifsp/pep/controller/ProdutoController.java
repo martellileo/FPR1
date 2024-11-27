@@ -8,6 +8,9 @@ import br.edu.ifsp.pep.entity.Produto;
 import br.edu.ifsp.pep.util.Relatorio;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +24,15 @@ import org.primefaces.model.StreamedContent;
 @RequestScoped
 public class ProdutoController {   
     
-    public StreamedContent gerarRelatorio(){
+    public StreamedContent gerarRelatorio() throws FileNotFoundException{
         
         List<Produto> dados = gerarListaProdutos();
         
-        InputStream jasper = getClass().getResourceAsStream("/br/edu/ifsp/pep/relatorio/produto");
+        File file = new File("~/LEOM/FPR1/primefaces/primefaces-main/src/main//java/br/edu/ifsp/pep/relatorio/produto.jrxml");
         
-        return Relatorio.gerar(jasper, null, dados);
+        InputStream is = new FileInputStream(file);
+        
+        return Relatorio.gerar(is, null, dados);
     }
     
     private List<Produto> gerarListaProdutos() {
@@ -35,6 +40,6 @@ public class ProdutoController {
         for(int i = 1; i < 30; i++){
             produtos.add(new Produto(i, "Produto" + i, Math.random()));
         }
-        return null;
+        return produtos;
     }
 }

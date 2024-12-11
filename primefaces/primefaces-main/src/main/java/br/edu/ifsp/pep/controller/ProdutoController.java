@@ -28,7 +28,7 @@ public class ProdutoController {
         
         List<Produto> dados = gerarListaProdutos();
         
-        File file = new File("D:/Faculdade/Codigos/4 semestre/FPR1/primefaces/primefaces-main/src/main/java/br/edu/ifsp/pep/relatorioproduto.jrxml");
+        File file = new File("br/edu/ifsp/pep/relatorioproduto.jrxml");
         
         InputStream is = new FileInputStream(file);
         

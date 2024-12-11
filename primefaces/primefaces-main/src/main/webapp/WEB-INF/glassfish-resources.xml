@@ -26,7 +26,7 @@
         <property name="portNumber" value="3306"/>
         <property name="databaseName" value="db_prova_primefaces"/>
         <property name="User" value="root"/>
-        <property name="Password" value="ifsp"/>
+        <property name="Password" value="Leo19042005"/>
         <property name="URL" value="jdbc:mysql://localhost:3306/db_prova_primefaces?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;createDatabaseIfNotExist=true&amp;serverTimezone=UTC&amp;serverTimezone=America/Sao_Paulo"/>
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver"/>
     </jdbc-connection-pool>

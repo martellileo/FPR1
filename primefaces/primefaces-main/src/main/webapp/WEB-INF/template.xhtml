@@ -45,6 +45,10 @@
                                       outcome="/login/login" />
                         </f:facet>
                     </p:menubar>
+
+                    <p:commandButton value="Relatório">
+                        <p:fileDownload value="#{produtoController.gerarRelatorio()}" />
+                    </p:commandButton>
                 </h:form>
             </ui:insert>
         </div>

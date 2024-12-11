@@ -24,7 +24,7 @@ import org.primefaces.model.StreamedContent;
 @RequestScoped
 public class ProdutoController {   
     
-    public StreamedContent gerarRelatorio() throws FileNotFoundException{
+    public StreamedContent gerarRelatorioProdutos() throws FileNotFoundException{
         
         List<Produto> dados = gerarListaProdutos();
         

@@ -19,8 +19,7 @@ import org.primefaces.model.DefaultStreamedContent;
  *
  * @author aluno
  */
-public class Relatorio {
-    
+public class Relatorio { 
     public static DefaultStreamedContent gerar(InputStream jasper, Map<String, Object> parametros, List dados) {
         try {
             JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(dados);

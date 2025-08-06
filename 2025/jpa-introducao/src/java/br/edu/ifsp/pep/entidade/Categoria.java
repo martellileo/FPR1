@@ -15,10 +15,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-/**
- *
- * @author aluno
- */
 @Entity
 @Table(name = "categoria")
 public class Categoria implements Serializable{

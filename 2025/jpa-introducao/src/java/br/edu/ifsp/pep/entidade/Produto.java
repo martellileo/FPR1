@@ -12,15 +12,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
-/**
- *
- * @author aluno
- */
 @Entity
 @Table(name = "produto")
 public class Produto implements Serializable{

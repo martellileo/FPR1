@@ -16,10 +16,6 @@ import jakarta.persistence.Table;
 import java.util.List;
 import java.util.Objects;
 
-/**
- *
- * @author aluno
- */
 @Entity
 @Table(name = "veiculo")
 public class Veiculo {

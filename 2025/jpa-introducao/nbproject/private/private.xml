@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/src/java/br/edu/ifsp/pep/dao/PessoaDAO.java</file>
-            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/src/conf/persistence.xml</file>
-            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/web/index.html</file>
+            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/web/index.xhtml</file>
+            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/Venda.java</file>
+            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/Veiculo.java</file>
+            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/Categoria.java</file>
             <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/Pessoa.java</file>
+            <file>file:/home/aluno/lm/FPR1/2025/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/Produto.java</file>
         </group>
     </open-files>
 </project-private>

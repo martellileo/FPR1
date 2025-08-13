@@ -6,19 +6,8 @@ package br.edu.ifsp.pep.dao;
 
 import br.edu.ifsp.pep.entidade.Veiculo;
 import jakarta.ejb.Stateless;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 
 @Stateless
-public class VeiculoDAO {
-    @PersistenceContext(name = "conexaoPU")
-    private EntityManager em;
+public class VeiculoDAO extends AbstractDAO<Veiculo> {
 
-    public VeiculoDAO() {
-        System.out.println("VeiculoDAO");
-    }
-
-    public void inserir(Veiculo v) {
-        em.persist(v);
-    }
 }

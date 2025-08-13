@@ -4,7 +4,6 @@
  */
 package br.edu.ifsp.pep.entidade;
 
-import jakarta.ejb.Stateless;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,11 +12,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -37,7 +34,7 @@ public class Produto implements Serializable{
     @Column(name = "quantidade", nullable = false)
     private Integer quantidade;
     
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne()
     @JoinColumn(name = "categoria_codigo", nullable = false)
     // @JoinColumn é pra mudar o nome da coluna que é uma chave estrangeira
     // o ManyToOne cria o relacionamento, no caso, esse relacionamento é de 

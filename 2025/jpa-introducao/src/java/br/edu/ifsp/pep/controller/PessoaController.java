@@ -1,5 +1,6 @@
 package br.edu.ifsp.pep.controller;
 
+import br.edu.ifsp.pep.dao.CategoriaDAO;
 import br.edu.ifsp.pep.dao.PessoaDAO;
 import br.edu.ifsp.pep.dao.ProdutoDAO;
 import br.edu.ifsp.pep.dao.VeiculoDAO;
@@ -30,7 +31,10 @@ public class PessoaController implements Serializable {
     private VeiculoDAO veiculoDAO; //mover depois para VeiculoController
     
     @Inject()
-    private ProdutoDAO produtoDAO;
+    private ProdutoDAO produtoDAO; //mover depois para produtoController
+    
+    @Inject()
+    private CategoriaDAO categoriaDAO; //mover depois para categoriaController
     
     public void inserir() {
         //Pessoa
@@ -78,29 +82,50 @@ public class PessoaController implements Serializable {
         veiculoDAO.inserir(v);
     }
     
-    public void inserirProduto(){
-        Produto produto1 = new Produto();
+    public void inserirCategoria(){ //mover depois para categoriaController
+        Categoria categoria = new Categoria();
+        categoria.setNome("Prensadao d rato");
+        categoriaDAO.inserir(categoria);
+    }
+    
+    public void inserirProduto(){ //mover depois para ProdutoController
+        Categoria categoria = (Categoria) categoriaDAO.buscaPorCodigo(1);
         
+        //Produto 1
+        Produto produto1 = new Produto();
         produto1.setNome("Pren d 10");
         produto1.setPreco(new BigDecimal(10));
         produto1.setQuantidade(100);
-        
-        Categoria categoria = new Categoria();
-        categoria.setNome("Categoria 1");
-        
         produto1.setCategoria(categoria);
-        
-        produtoDAO.inserir(produto1);
-        
-        
+          
+        //Produto 2
         Produto produto2 = new Produto();
         produto2.setNome("Pren d 20");
         produto2.setPreco(new BigDecimal(20));
         produto2.setQuantidade(100);
-        
         produto2.setCategoria(categoria);
         
+        produtoDAO.inserir(produto1);
         produtoDAO.inserir(produto2);
         
+    }
+    
+    public void alterarCategoria(){ //mover depois para categoriaController
+        Categoria categoria = categoriaDAO.buscaPorCodigo(1);
+        if(categoria != null){
+            System.out.println(categoria.getNome());
+            categoria.setNome("Prensê di ratê");
+            
+            categoriaDAO.alterar(categoria); //teve que mudar pra public?
+        } else {
+            System.out.println("Categoria não encontrada");
+        }
+        
+//        ou
+        
+//        Categoria categoria = new Categoria();
+//        categoria.setCodigo(1);
+//        categoria.setNome("Categoria 1 alterada");
+//        categoriaDAO.alterar(categoria);
     }
 }

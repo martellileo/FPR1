@@ -6,16 +6,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Stateless
-public class PessoaDAO {
+public class PessoaDAO extends AbstractDAO<Pessoa> {
 
-    @PersistenceContext(name = "conexaoPU")
-    private EntityManager em;
-
-    public PessoaDAO() {
-        System.out.println("PessoaDAO");
-    }
-
-    public void inserir(Pessoa p) {
-        em.persist(p);
-    }
 }

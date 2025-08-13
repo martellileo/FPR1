@@ -10,15 +10,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Stateless
-public class ProdutoDAO {
-    @PersistenceContext(name = "conexaoPU")
-    private EntityManager em;
+public class ProdutoDAO extends AbstractDAO<Produto> {
 
-    public ProdutoDAO() {
-        System.out.println("ProdutoDAO");
-    }
-
-    public void inserir(Produto p) {
-        em.persist(p);
-    }
 }

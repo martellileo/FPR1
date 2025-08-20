@@ -36,6 +36,11 @@ public class Endereco {
     @Column(name = "cidade_estado", length = 50, nullable = false)
     private String cidade_estado;
 
+    @Override
+    public String toString() {
+        return "Endereco{" + "codigo=" + codigo + ", logradouro=" + logradouro + ", bairro=" + bairro + ", complemento=" + complemento + ", cidade_estado=" + cidade_estado + '}';
+    }
+
     public Integer getCodigo() {
         return codigo;
     }

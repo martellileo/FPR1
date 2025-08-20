@@ -21,19 +21,53 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
             <p:commandButton value="Inserir Pessoa" 
                              icon="pi pi-check" 
                              action="#{pessoaController.inserir()}"/>
+            <p:commandButton value="Inserir Pessoa Varios" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.inserirVarios()}"/>
             <p:commandButton value="Inserir Veiculo" 
                              icon="pi pi-check" 
                              action="#{pessoaController.inserirVeiculo()}"/>
             <p:commandButton value="Inserir Produto" 
                              icon="pi pi-check" 
                              action="#{pessoaController.inserirProduto()}"/>
-            <br/>
             <p:commandButton value="Inserir Categoria" 
                              icon="pi pi-check" 
                              action="#{pessoaController.inserirCategoria()}"/>
+            <br/>
             <p:commandButton value="Alterar Categoria" 
                              icon="pi pi-check" 
                              action="#{pessoaController.alterarCategoria()}"/>
+            <br/>
+            <p:commandButton value="Buscar Pessoas" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.buscarPessoas()}"/>
+            <p:commandButton value="Buscar Pessoas Codigo" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.buscarPessoaPeloCodigo()}"/>
+            <p:commandButton value="Quantidade de Pessoas" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.quantidadePessoas()}"/>
+            <p:commandButton value="Maior Salario" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.maiorSalario()}"/>
+            <p:commandButton value="Menor Salario" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.menorSalario()}"/>
+            <p:commandButton value="Media Salario" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.mediaSalario()}"/>
+            <p:commandButton value="Mais que Cinco Mil Salario" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.maisQueCincoMil()}"/>
+            <p:commandButton value="Buscar Gerente" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.buscarGerente()}"/>
+            <p:commandButton value="Buscar Gerente Menos Cinco Mil" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.buscarGerenteMenosCincoMil()}"/>
+            <p:commandButton value="Media Salario Gerentes" 
+                             icon="pi pi-check" 
+                             action="#{pessoaController.salarioMedioGerentes()}"/>
         </h:form>
 <!--        <img src="https://media.tenor.com/WuG5qhJkNU8AAAAi/dancing-letter-letter-g.gif"/>
         <img src="https://media.tenor.com/EIY_UtNB-SYAAAAi/word.gif"/>

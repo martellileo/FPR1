@@ -11,6 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -22,6 +24,20 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "pessoa")
+@NamedQueries(value = {
+    @NamedQuery(name = "Pessoa.buscarTodos",
+            query = "Select p FROM Pessoa p"),
+    @NamedQuery(name = "Pessoa.buscarPeloCodigo",
+            query = "From Pessoa p WHERE p.codigo = :codigo"),
+    @NamedQuery(name = "Pessoa.buscarGerente",
+            query = "From Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente"),
+    @NamedQuery(name = "Pessoa.buscarGerenteMenosCincoMil",
+            query = "From Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente AND p.salario < 5000"),
+    @NamedQuery(name = "Pessoa.salarioMedioGerentes", 
+            query = "Select avg(p.salario) From Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente"),
+    @NamedQuery(name = "Pessoa.desisto", 
+            query = "SELECT p FROM Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente AND p.salario > (SELECT AVG(p2.salario) FROM Pessoa p2 WHERE p2.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente);")
+        })
 public class Pessoa implements Serializable {
 
     @Id
@@ -44,7 +60,7 @@ public class Pessoa implements Serializable {
     @Column(name = "tipo_pessoa", nullable = false, length = 15)
     @Enumerated(EnumType.STRING)
     private TipoPessoa tipoPessoa;
-    
+
     @OneToMany(mappedBy = "pessoa")
     private List<Venda> vendas;
 
@@ -53,10 +69,25 @@ public class Pessoa implements Serializable {
             joinColumns = @JoinColumn(name = "pessoa_codigo"),
             inverseJoinColumns = @JoinColumn(name = "veiculo_codigo"))
     private List<Veiculo> veiculos;
-    
+
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "endereco_codigo", nullable = false)
     private Endereco endereco;
+
+    @Override
+    public String toString() {
+        return "Pessoa {\n"
+                + "  codigo = " + codigo + ",\n"
+                + "  nome = '" + nome + "',\n"
+                + "  dataNascimento = " + dataNascimento + ",\n"
+                + "  salario = " + salario + ",\n"
+                + "  email = '" + email + "',\n"
+                + "  tipoPessoa = " + tipoPessoa + ",\n"
+                + "  vendas = " + vendas + ",\n"
+                + "  veiculos = " + veiculos + ",\n"
+                + "  endereco = " + endereco + "\n"
+                + '}';
+    }
 
     public Endereco getEndereco() {
         return endereco;
@@ -73,7 +104,7 @@ public class Pessoa implements Serializable {
     public void setVeiculos(List<Veiculo> veiculos) {
         this.veiculos = veiculos;
     }
-    
+
     public List<Venda> getVendas() {
         return vendas;
     }
@@ -155,5 +186,4 @@ public class Pessoa implements Serializable {
         return Objects.equals(this.codigo, other.codigo);
     }
 
-    
 }

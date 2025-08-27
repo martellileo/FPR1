@@ -34,10 +34,11 @@ import java.util.Objects;
     @NamedQuery(name = "Pessoa.buscarGerenteMenosCincoMil",
             query = "From Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente AND p.salario < 5000"),
     @NamedQuery(name = "Pessoa.salarioMedioGerentes", 
-            query = "Select avg(p.salario) From Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente"),
-    @NamedQuery(name = "Pessoa.desisto", 
-            query = "SELECT p FROM Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente AND p.salario > (SELECT AVG(p2.salario) FROM Pessoa p2 WHERE p2.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente);")
+            query = "Select avg(p.salario) From Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente")
         })
+
+//@NamedQuery(name = "Pessoa.desisto", 
+//            query = "SELECT p FROM Pessoa p WHERE p.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente AND p.salario > (SELECT AVG(p2.salario) FROM Pessoa p2 WHERE p2.tipoPessoa = br.edu.ifsp.pep.entidade.TipoPessoa.Gerente);")
 public class Pessoa implements Serializable {
 
     @Id

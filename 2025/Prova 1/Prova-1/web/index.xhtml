@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="primefaces"
+      xmlns:h="jakarta.faces.html">
+    <h:head>
+        <title>Prova 1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1> Todos os valores das queries estão setados para o codigo = 1 </h1>
+        <div style="flex: auto;
+             align-content: space-between;">
+            <h:form>
+                <p:commandButton value="Inserir" 
+                                 action="#{alunoController.inserir()}"/>
+                <p:commandButton value="buscarAlunoCodigoCurso" 
+                                 action="#{alunoController.buscarAlunoCodigo()}"/>
+                <p:commandButton value="buscarDisciplinasAlunoMatriculado" 
+                                 action="#{alunoController.buscarDisciplinasAlunoMatriculado()}"/>
+                <p:commandButton value="contagemDisciplinas" 
+                                 action="#{alunoController.contagemDisciplinas()}"/>
+            </h:form>
+        </div>       
+    </h:body>
+</html>

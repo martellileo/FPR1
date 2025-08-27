@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/aluno/lm/Prova-Base/src/java/br/edu/ifsp/pep/controller/AlunoController.java</file>
+            <file>file:/home/aluno/lm/Prova-Base/src/java/br/edu/ifsp/pep/entidade/Disciplina.java</file>
+            <file>file:/home/aluno/lm/Prova-Base/src/java/br/edu/ifsp/pep/dao/DisciplinaDAO.java</file>
+            <file>file:/home/aluno/lm/Prova-Base/src/java/br/edu/ifsp/pep/entidade/Curso.java</file>
+            <file>file:/home/aluno/lm/Prova-Base/src/java/br/edu/ifsp/pep/dao/AlunoDAO.java</file>
+            <file>file:/home/aluno/lm/Prova-Base/src/java/br/edu/ifsp/pep/dao/CursoDAO.java</file>
+            <file>file:/home/aluno/lm/Prova-Base/web/index.xhtml</file>
+            <file>file:/home/aluno/lm/Prova-Base/src/java/br/edu/ifsp/pep/entidade/Aluno.java</file>
+        </group>
+    </open-files>
+</project-private>

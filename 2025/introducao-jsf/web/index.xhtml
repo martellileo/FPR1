@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ferramentas de Programação</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:growl id="growl" showDetail="true"/> <!-- aparecer as mensagens no canto da tela -->
+            // adicionar o css dps pra centralizar essas divs aq
+            <div class="flex-container">
+                
+                <div class="form-campo">
+                    Nome
+                    <p:inputText id="inputNome" 
+                                 value="#{pessoaController.pessoa.nome}" />
+                </div>
+
+                <div class="form-campo">
+                    Data Nascimento
+                    <p:datePicker id="datePicker" 
+                                  value="#{pessoaController.pessoa.dataNascimento}" 
+                                  monthNavigator="true" 
+                                  yearNavigator="true" 
+                                  showWeek="true" />
+                </div>
+
+                <div class="form-campo">
+                    Salario
+                    <p:inputNumber id="inputSalario" 
+                                   value="#{pessoaController.pessoa.salario}" 
+                                   symbol=" BRL"
+                                   symbolPosition="s" 
+                                   decimalSeparator="," 
+                                   thousandSeparator="." />
+                </div>
+
+                <div class="buttons">
+                    <p:commandButton value="Adicionar Pessoa" 
+                                     action="#{pessoaController.adicionarPessoa()}" 
+                                     update="growl, form"/>
+                    <p:commandButton value="Exibir" 
+                                     action="#{pessoaController.exibir()}" />
+                </div>
+            </div>
+
+        </h:form>
+    </h:body>
+</html>

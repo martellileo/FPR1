@@ -3,14 +3,15 @@
                 xmlns:ui="jakarta.faces.facelets"
                 template="./../WEB-INF/template.xhtml"
                 xmlns:h="jakarta.faces.html"
-                xmlns:p="primefaces"
-                xmlns:f="jakarta.faces.core">
+                xmlns:f="jakarta.faces.core"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="content">
         <h:form id="form">
             <p:growl id="growl" showDetail="true"/> <!-- aparecer as mensagens no canto da tela -->
 
-            <p:panelGrid columns="2" layout="tabular">
+            <div class="align-center">
+                <p:panelGrid columns="2" layout="tabular" style="width: 100%;">
                 <f:facet name="header">
                     Cadastro de Pessoa
                 </f:facet>
@@ -33,14 +34,23 @@
                                symbolPosition="s" 
                                decimalSeparator="," 
                                thousandSeparator="." />
+                
+                <h:outputLabel for="@next" value="Cargo" />
+                <p:selectOneMenu id="cargo" value="#{pessoaController.pessoa.cargo}">
+                    <f:selectItem itemLabel="Selecione" itemValue=""/>
+                    <f:selectItems value="#{cargoController.cargos}"
+                                   var="item"
+                                   itemLabel="#{item.nome}"
+                                   itemValue="#{item}"/>
+                </p:selectOneMenu>
 
             </p:panelGrid>
 
             <p:commandButton value="Adicionar Pessoa" 
                              action="#{pessoaController.adicionarPessoa()}" 
                              update="growl, form"/>
-            <!--                    <p:commandButton value="Exibir" 
-                                                 action="# {pessoaController.exibir()}" />-->
+            </div>
+
         </h:form>
     </ui:define>
 

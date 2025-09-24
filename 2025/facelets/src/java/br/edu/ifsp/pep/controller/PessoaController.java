@@ -22,6 +22,7 @@ public class PessoaController {
 
     @Inject()
     private PessoaDAO pessoaDAO;
+    
 
     public PessoaController() {
         System.out.println("Construtor");
@@ -68,9 +69,9 @@ public class PessoaController {
 
         return this.pessoas;
     }
+    
     public void setPessoas(List<Pessoa> pessoas) {
         this.pessoas = pessoas;
     }
 
-    
 }

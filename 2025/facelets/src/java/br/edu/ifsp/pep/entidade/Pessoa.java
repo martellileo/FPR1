@@ -10,9 +10,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
@@ -20,7 +23,7 @@ import java.time.LocalDate;
 @NamedQueries(value = {
     @NamedQuery(name = "Pessoa.buscarTodas", query = "FROM Pessoa p")
 })
-public class Pessoa {
+public class Pessoa implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigo")
@@ -34,9 +37,21 @@ public class Pessoa {
     
     @Column(name = "salario")
     private double salario;
+    
+    @ManyToOne
+    @JoinColumn(name = "cargo_codigo")
+    private Cargo cargo;
 
     public int getCodigo() {
         return codigo;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 
     public void setCodigo(int codigo) {

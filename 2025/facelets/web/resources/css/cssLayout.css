@@ -8,10 +8,11 @@
 }
 
 #bottom {
-    position: relative;
     background-color: #c2dfef;
-    padding: 5px;
+    padding: 20px;
     margin: 10px 0px 0px 0px;
+    text-align: center;
+    border: 1px solid;
 }
 
 #left {
@@ -29,9 +30,11 @@
 }
 
 .center_content {
-    position: relative;
-    background-color: #dddddd;
+/*    background-color: #dddddd;*/
     padding: 5px;
+    width: 80vw;
+    margin: 0 auto;
+    min-height: 70vh;
 }
 
 .left_content {
@@ -56,6 +59,21 @@
   color: black;
   font-weight : bold;
   text-decoration : underline;
+}
+
+.align-center {
+    margin: 0 auto;
+    width: 70%;
+}
+
+@media (max-width: 900px){
+    .align-center {
+        width: 100%
+    }
+    
+    .center_content{    
+        width: 100%;
+    }
 }
 
 

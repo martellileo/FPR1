@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>PrimeFaces</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:commandButton value="Voltar" 
+                             action="/index.xhtml" />
+            
+            <p:growl id="growl" showDetail="true"/> <!-- aparecer as mensagens no canto da tela -->
+            <p:dataTable
+                id="dtable"
+                paginator="true"
+                rows="5"
+                paginatorPosition="bottom"
+                rowsPerPageTemplate="5,10,{ShowAll|'Todos'}"
+                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+
+                var="pessoa"
+                value="#{pessoaController.pessoas}" >
+                <p:column headerText="Codigo" responsivePriority="4">
+                    <h:outputText value="#{pessoa.codigo}"/>
+                </p:column>
+
+                <p:column headerText="Nome">
+                    <h:outputText value="#{pessoa.nome}"/>
+                </p:column>
+
+                <p:column headerText="Salario" responsivePriority="2">
+                    <h:outputText value="#{pessoa.salario}">
+                        <f:convertNumber type="currency"/>
+                    </h:outputText>
+                </p:column>
+
+                <p:column headerText="Data de Nascimento" responsivePriority="3">
+                    <h:outputText value="#{pessoa.dataNascimento}">
+                        <f:convertDateTime pattern="dd/MM/yyyy"
+                                           type="localDate"/>
+                    </h:outputText>
+                </p:column>
+
+                <p:column style="width:3rem;text-align: center">
+                    <p:commandButton icon="pi pi-trash" title="Excluir" 
+                                     action="#{pessoaController.excluir(pessoa)}"
+                                     update="form:growl, dtable"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

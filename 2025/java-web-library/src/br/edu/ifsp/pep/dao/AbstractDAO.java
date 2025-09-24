@@ -5,7 +5,7 @@ import jakarta.persistence.PersistenceContext;
 
 public abstract class AbstractDAO<T> {
     @PersistenceContext(name = "conexaoPU")
-    private EntityManager em;
+    public EntityManager em;
     
     protected EntityManager getEntityManager(){
         return em;
@@ -19,7 +19,7 @@ public abstract class AbstractDAO<T> {
         em.merge(entity);
     }
     
-    protected void remover(T entity){
+    public void remover(T entity){
         em.remove(em.merge(entity));
     }
 }

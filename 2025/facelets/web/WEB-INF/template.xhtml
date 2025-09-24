@@ -10,7 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="/css/default.css"/>
         <h:outputStylesheet name="/css/cssLayout.css"/>
-        <title>Facelets Template</title>
+        <title>Cesar Fera</title>
     </h:head>
 
     <h:body>
@@ -23,18 +23,18 @@
                                     icon="pi pi-fw pi-home"
                                     outcome="/index"/>
                         
-                        <p:submenu label="Cadastros"
-                                   icon="pi pi-fw pi-plus">
-                            <p:menuitem value="Pessoa" 
-                                        icon="pi pi-fw pi-user-plus"
-                                        outcome="/pessoa/cadastro"/>
-                        </p:submenu>
-                        
-                        <p:submenu label="Listagem"
-                                   icon="pi pi-fw pi-list">
-                            <p:menuitem value="Pessoa" 
-                                        icon="pi pi-fw pi-user"
-                                        outcome="/pessoa/lista"/>
+                        <p:submenu label="Gerenciar"
+                                   icon="pi pi-fw pi-folder">
+                            <p:submenu label="Pessoa"
+                                       icon="pi pi-fw pi-user">
+                                <p:menuitem value="Cadastro"
+                                            icon="pi pi-fw pi-user-plus"
+                                            outcome="/pessoa/cadastro"/>
+                                <p:menuitem value="Listagem"
+                                            icon="pi pi-fw pi-list"
+                                            outcome="/pessoa/lista"/>
+                            </p:submenu>
+                            
                         </p:submenu>
                     </p:menubar>
                 </h:form>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="primefaces"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:growl id="growl" showDetail="true"/> 
+
+                    <div class="align-center">
+                        <p:panelGrid columns="2" layout="tabular" style="width: 100%;">
+                            <f:facet name="header">
+                                Cadastro de Produtos
+                            </f:facet>
+
+                            <h:outputLabel value="Categoria"/>
+                            <p:autoComplete 
+                                value="#{produtoController.produto.categoria}" 
+                                completeMethod="#{categoriaController.buscarPeloNome}"
+                                var="item"
+                                itemValue="#{item}"
+                                itemLabel="#{item.nome}"/>
+
+                            <h:outputText value="Nome"/>
+                            <p:inputText id="inputNome" 
+                                         value="#{produtoController.produto.nome}" />
+
+                            <h:outputText value="Preço"/>
+                            <p:inputNumber id="inputPreco" 
+                                           value="#{produtoController.produto.preco}" 
+                                           symbol=" BRL"
+                                           symbolPosition="s" 
+                                           decimalSeparator="," 
+                                           thousandSeparator="." />
+                            
+                            <h:outputText value="Desconto"/>
+                            <p:inputNumber id="inputDesconto"
+                                           value="#{produtoController.produto.desconto}"
+                                           decimalPlaces="2"
+                                           decimalPlacesRawValue="00"
+                                           emptyValue="zero"
+                                           />
+
+                        </p:panelGrid>
+
+                        <p:commandButton value="Adicionar" 
+                                         action="#{produtoController.adicionarProduto()}" 
+                                         update="growl, form"/>
+                    </div>
+
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

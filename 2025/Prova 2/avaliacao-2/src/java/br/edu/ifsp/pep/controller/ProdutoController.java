@@ -1,6 +1,7 @@
 package br.edu.ifsp.pep.controller;
 
 import br.edu.ifsp.pep.DAO.ProdutoDAO;
+import br.edu.ifsp.pep.entidade.Categoria;
 import br.edu.ifsp.pep.entidade.Produto;
 import br.edu.ifsp.pep.util.Mensagem;
 import jakarta.enterprise.context.RequestScoped;
@@ -19,15 +20,19 @@ public class ProdutoController implements Serializable {
     @Inject()
     private ProdutoDAO produtoDAO;
 
+    @Inject
+    private CategoriaController categoriaController;
+
     public void adicionarProduto() {
 
-        if (produto.getNome().length() < 5) {;
+        if (produto.getNome().length() < 5) {
             Mensagem.atencao("Nome do produto deve conter mais que quatro caracteres");
         } else {
             produto.setQuantidade(10);
             produtoDAO.inserir(produto);
             Mensagem.sucesso("Produto cadastrado no banco de dados");
             produto = new Produto();
+            produtos = null;
         }
     }
 
@@ -47,8 +52,14 @@ public class ProdutoController implements Serializable {
     }
 
     public List<Produto> getProdutos() {
-        if (produtos == null) {
-            produtos = produtoDAO.buscarTodos();
+        Categoria filtro = categoriaController.getFiltro();
+        
+        if (produtos == null) { 
+            if (filtro != null) {
+                produtos = produtoDAO.buscarPorCategoria(filtro);
+            } else {
+                produtos = produtoDAO.buscarTodos();
+            }
         }
         return produtos;
     }
@@ -67,9 +78,10 @@ public class ProdutoController implements Serializable {
 
     @Override
     public String toString() {
-        return "ProdutoController{" + "produto=" + produto + ", produtos=" + produtos + ", produtoDAO=" + produtoDAO + '}';
+        return "ProdutoController{" + "produto=" + produto + ", produtos=" + produtos + ", produtoDAO=" + produtoDAO + ", categoriaController=" + categoriaController + '}';
     }
 
+    
     public ProdutoController() {
     }
 

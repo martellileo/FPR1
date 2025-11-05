@@ -29,4 +29,13 @@ public class ProdutoDAO extends AbstractDAO<Produto>{
         EntityManager em = getEntityManager();
         return em.find(Categoria.class, id);
     }
+    
+    public List<Produto> buscarPorCategoria(Categoria categoria) {
+        EntityManager em = getEntityManager();
+        TypedQuery<Produto> query = 
+                em.createQuery("SELECT p FROM Produto p WHERE p.categoria = :cat",Produto.class);
+        query.setParameter("cat", categoria);
+        
+        return query.getResultList();
+    }
 }

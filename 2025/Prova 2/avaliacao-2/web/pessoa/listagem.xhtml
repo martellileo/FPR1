@@ -13,18 +13,18 @@
                 <h:form id="form">
                     Categoria
                     <p:growl id="growl" showDetail="true"/>
-                    <p:selectOneMenu id="filtroTable" value="#{categoriaController.categoria.nome}">
+                    <p:selectOneMenu id="filtroTable" value="#{categoriaController.filtro}">
                         <f:selectItem itemLabel="Selecione" 
-                                      itemValue="#{categoriaController.filtro}"
+                                      itemValue="#{null}"
                                       />
                         <f:selectItems value="#{categoriaController.categorias}"
-                                       var="filtro"
-                                       itemLabel="#{filtro.nome}"
-                                       itemValue="#{filtro}"/>
+                                       var="cat"
+                                       itemLabel="#{cat.nome}"
+                                       itemValue="#{cat}"/>
                     </p:selectOneMenu>
                     <p:commandButton value="Aplicar" 
-                                     action="#{categoriaController.aplicarFiltro(filtro)}"
-                                     update="form, table"/>
+                                     action="#{categoriaController.aplicarFiltro()}"
+                                     update="table, growl"/>
 
                     <p:dataTable
                         id="table"
@@ -35,8 +35,7 @@
                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                         var="produto"
-                        value="#{produtoController.produtos}" 
-                        dataLocale="#{categoriaController.filtro}"
+                        value="#{produtoController.produtos}"
                         >
 
                         <p:column headerText="Codigo" responsivePriority="4">

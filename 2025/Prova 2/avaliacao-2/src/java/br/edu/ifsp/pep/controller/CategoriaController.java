@@ -18,13 +18,19 @@ public class CategoriaController {
     @Inject()
     private CategoriaDAO categoriaDAO;
     
+    @Inject() 
+    private ProdutoController produtoController;
+    
     public List<Categoria> buscarPeloNome(String nome){
         return categoriaDAO.buscarPeloNome(nome);
     }
     
-    public void aplicarFiltro(Categoria categoria){
-//        filtro = categoria;
-        System.out.println(filtro);
+    public void aplicarFiltro() {
+        System.out.println("Filtro selecionado: " + (filtro != null ? filtro.getNome() : "Nenhum"));
+        
+        // Força o ProdutoController a recarregar a lista na próxima vez
+        // que 'getProdutos()' for chamado.
+        produtoController.setProdutos(null);
     }
 
     public CategoriaController() {

@@ -7,9 +7,10 @@
 }
 
 #bottom {
-    position: relative;
-    padding: 5px;
-    margin: 10px 0px 0px 0px;
+    position: fixed; /* Fixa a posição na tela, ignorando a rolagem */
+    bottom: 10px; /* Alinha a parte inferior da div com a parte inferior da viewport */
+    left: 20px; /* Alinha a esquerda da div com a esquerda da viewport */
+    width: 98%; /* Garante que ocupe a largura total da tela */
 }
 
 #left {

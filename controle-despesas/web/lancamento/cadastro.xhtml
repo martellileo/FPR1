@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                template="./../WEB-INF/template.xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="primefaces"
+                xmlns:f="jakarta.faces.core">
+
+    <ui:define name="content">
+        <h:form id="form" class="align-center">
+            <p:panelGrid columns="2" layout="tabular" style="width: 100%" >
+                <f:facet name="header">
+                    Cadastro de Lançamento
+                </f:facet>
+
+                <p:outputLabel value="Descrição"/>
+                <p:inputText value="#{lancamentoController.lancamento.descricao}" />
+
+                <p:outputLabel value="Tipo"/>
+                <h:selectOneMenu id="tipo"
+                                 value="#{lancamentoController.lancamento.tipo}">
+                    <f:selectItem itemLabel="Selecione o Tipo" 
+                                  itemValue="#{null}" 
+                                  noSelectionOption="true" />
+
+                    <f:selectItems value="#{lancamentoController.tiposLancamento}" var="tipo"
+                                   itemLabel="#{tipo.toString()}" itemValue="#{tipo}" />
+                </h:selectOneMenu>
+
+
+                <p:outputLabel value="Valor"/>
+                <p:inputNumber value="#{lancamentoController.lancamento.valor}" />
+
+
+                <p:outputLabel value="Data do Vencimento" />
+                <p:datePicker value="#{lancamentoController.lancamento.dataVencimento}" 
+                              monthNavigator="true" 
+                              yearNavigator="true" 
+                              showWeek="true" />
+
+                <p:outputLabel value="Data do Pagamento" />
+                <p:datePicker value="#{lancamentoController.lancamento.dataPagamento}" 
+                              monthNavigator="true" 
+                              yearNavigator="true" 
+                              showWeek="true" />          
+
+            </p:panelGrid>
+
+            <p:commandButton value="Adicionar"
+                             update="form growl"
+                             action="#{lancamentoController.inserir()}" />
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                template="./../WEB-INF/template.xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="primefaces"
+                xmlns:f="jakarta.faces.core">
+
+    <ui:define name="content">
+        <h:form id="form">
+            <p:commandButton value="Cadastrar" action="/lancamento/cadastro" />
+            <p:dataTable
+                id="tabela"
+                paginator="true"
+                rows="5"
+                paginatorPosition="bottom"
+                rowsPerPageTemplate="5,10,{ShowAll|'Todos'}"
+                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+
+                var="lancamento"
+                value="#{lancamentoController.lancamentos}" >
+
+                <p:column headerText="Codigo" responsivePriority="4" >
+                    <h:outputText value="#{lancamento.id}" />
+                </p:column>
+
+                <p:column headerText="Descrição">
+                    <h:outputText value="#{lancamento.descricao}" />
+                </p:column>
+                
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{lancamento.tipo}" />
+                </p:column>
+
+                <p:column headerText="Valor" responsivePriority="2">
+                    <h:outputText value="#{lancamento.valor}">
+                        <f:convertNumber type="currency" />
+                    </h:outputText>
+
+                </p:column>
+
+                <p:column headerText="Data Vencimento" responsivePriority="3">
+                    <h:outputText value="#{lancamento.dataVencimento}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy"
+                                           type="localDate"/>
+                    </h:outputText>
+                </p:column>
+                
+                <p:column headerText="Data Pagamento">
+                    <h:outputText value="#{lancamento.dataPagamento}" >
+                        <f:convertDateTime pattern="dd/MM/yyyy"
+                                           type="localDate"/>
+                    </h:outputText>
+                </p:column>
+
+                <p:column>
+                    <p:commandButton icon="pi pi-trash"
+                                     update="form:growl,tabela"
+                                     action="#{lancamento.excluir(lancamento)}"/>
+                </p:column>
+
+            </p:dataTable>
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/aluno/Downloads/jpa-introducao/src/java/br/edu/ifsp/pep/controller/VendaController.java</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/src/java/br/edu/ifsp/pep/dao/ProdutoDAO.java</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/ItemVendaPK.java</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/web/index.xhtml</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/ItemVenda.java</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/web/venda/visualizar.xhtml</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/Venda.java</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/web/venda/criar.xhtml</file>
+            <file>file:/home/aluno/Downloads/jpa-introducao/src/java/br/edu/ifsp/pep/entidade/Produto.java</file>
+        </group>
+    </open-files>
+</project-private>

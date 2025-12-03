@@ -55,7 +55,7 @@ public class PessoaController {
         return cargoDAO.buscarPeloNome(query);
     }
 
-    public String inserir() {
+    public String inserir() throws Exception {
 
         if (pessoa.getNome().length() < 5) {
             Mensagem.atencao("O Nome deve ter pelo menos 5 caracteres.");

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                template="./../WEB-INF/template.xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="primefaces">
+
+    <ui:define name="content">
+        <h:form id="form" class="align-center">
+
+            <h2>Listagem de Alocações</h2>
+            <p:dataTable id="tabela"
+                         paginator="true"
+                         rows="5"
+                         paginatorPosition="bottom"
+                         rowsPerPageTemplate="5,10,{ShowAll|'Todos'}"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                         value="#{alocadoController.alocados}"
+                         var="item">
+
+                <p:column headerText="Desenvolvedor">
+                    <h:outputText value="#{item.desenvolvedor.nome}" />
+                </p:column>
+
+                <p:column headerText="Projeto">
+                    <h:outputText value="#{item.projeto.nome}" />
+                </p:column>
+
+                <p:column headerText="Quantidade de Horas">
+                    <h:outputText value="#{item.horas}" />
+                </p:column>
+
+                <p:column headerText="Valor por hora">
+                    <h:outputText value="#{item.valor}" />
+                </p:column>
+                
+                <p:column>
+                    <p:commandButton icon="pi pi-trash"
+                                     update=":growl, tabela"
+                                     action="#{alocadoController.excluir(item)}"/>
+                </p:column>
+
+                <!--tabela nao atualiza-->
+                
+            </p:dataTable>
+            
+            <p:commandButton value="Atualizar" 
+                             action="#{alocadoController.atualizar()}"
+                             update="tabela"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

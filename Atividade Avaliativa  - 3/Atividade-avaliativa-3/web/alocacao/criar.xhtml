@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="jakarta.faces.facelets"
+                template="./../WEB-INF/template.xhtml"
+                xmlns:h="jakarta.faces.html"
+                xmlns:p="primefaces"
+                xmlns:f="jakarta.faces.core">
+
+    <ui:define name="content">
+        <h:form id="form" class="align-center">
+
+            <p:panelGrid columns="2" layout="tabular">
+                <f:facet name="header">
+                    Alocação
+                </f:facet>
+
+                <h:outputLabel value="Projeto" for="@next"/>
+                <p:selectOneMenu value="#{projetoController.projetoEscolhido}">
+                    <f:selectItem itemLabel="Selecione o Projeto" 
+                                  itemValue=""/>
+                    <f:selectItems value="#{projetoController.buscarTodosProjetos()}"
+                                   var="projeto"
+                                   itemLabel="#{projeto.nome}"
+                                   itemValue="#{projeto}"/>
+                </p:selectOneMenu>
+
+                <h:outputLabel value="Desenvolvedor" for="@next"/>
+                <p:selectOneMenu value="#{desenvolvedorController.desenvolvedorEscolhido}">
+                    <f:selectItem itemLabel="Selecione o Desenvolvedor" 
+                                  itemValue=""/>
+                    <f:selectItems value="#{desenvolvedorController.buscarTodosDesenvolvedores()}"
+                                   var="dev"
+                                   itemLabel="#{dev.nome}"
+                                   itemValue="#{dev}"/>
+                </p:selectOneMenu>
+
+                
+                <h:outputLabel value="Quantidade de Horas" for="@next"/>
+                <p:inputNumber value="#{alocadoController.quantidadeHoras}"
+                               minValue="1"
+                               required="true"/>
+
+                <h:outputLabel value="Valor por hora" for="@next"/>
+                <p:inputNumber value="#{alocadoController.valor}" emptyValue="00.00"
+                               decimalPlaces="2"
+                               symbol=" BRL"
+                               symbolPosition="s" 
+                               decimalSeparator="," 
+                               thousandSeparator="."
+                               required="true"/>
+
+            </p:panelGrid>
+
+            <p:commandButton value="Alocar"
+                             update=":growl"
+                             action="#{alocadoController.adicionar()}"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

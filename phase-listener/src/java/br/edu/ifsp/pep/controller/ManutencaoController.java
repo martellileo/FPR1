@@ -37,7 +37,7 @@ public class ManutencaoController {
         return servicoDAO.buscarPeloNome(query);
     }
 
-    public String inserir() {
+    public String inserir() throws Exception {
         manutencao.setData(LocalDate.now());
         manutencaoDAO.inserir(manutencao);
         manutencao = new Manutencao();

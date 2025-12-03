@@ -50,7 +50,7 @@ public class VendaController implements Serializable {
         
     }
     
-    public String finalizar() {
+    public String finalizar() throws Exception {
        
         venda.setData(LocalDateTime.now());
         venda.setItens(itensVenda);

@@ -27,9 +27,6 @@ public class CategoriaController {
     
     public void aplicarFiltro() {
         System.out.println("Filtro selecionado: " + (filtro != null ? filtro.getNome() : "Nenhum"));
-        
-        // Força o ProdutoController a recarregar a lista na próxima vez
-        // que 'getProdutos()' for chamado.
         produtoController.setProdutos(null);
     }
 
